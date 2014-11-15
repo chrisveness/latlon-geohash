@@ -11,6 +11,20 @@ Methods summary:
 - `bounds` of a geohash cell
 - `adjacent` `neighbours` of a geohash
 
+Install
+-------
+
+### in browser
+
+Download the JavaScript [source](https://raw.githubusercontent.com/chrisveness/geodesy/master/latlon-geohash.js)
+and reference in HTML page using:
+
+    <script src="js/latlon-geohash.js"></script>
+
+### from npm
+
+    npm install --save latlon-geohash
+
 Usage
 -----
 
