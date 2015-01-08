@@ -13,6 +13,11 @@
  */
 var Geohash = {};
 
+/* Node module export */
+if (typeof module !== 'undefined') {
+  module.exports = Geohash;
+}
+
 
 /* (Geohash-specific) Base32 map */
 Geohash.base32 = '0123456789bcdefghjkmnpqrstuvwxyz';
@@ -40,6 +45,7 @@ Geohash.encode = function(lat, lon, precision) {
             var posn = Geohash.decode(hash);
             if (posn.lat==lat && posn.lon==lon) return hash;
         }
+        precision = 12; // set to maximum
     }
 
     lat = Number(lat);
