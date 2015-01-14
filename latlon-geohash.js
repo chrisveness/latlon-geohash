@@ -13,10 +13,8 @@
  */
 var Geohash = {};
 
-
 /* (Geohash-specific) Base32 map */
 Geohash.base32 = '0123456789bcdefghjkmnpqrstuvwxyz';
-
 
 /**
  * Encodes latitude/longitude to geohash, either to specified precision or to automatically
@@ -40,6 +38,7 @@ Geohash.encode = function(lat, lon, precision) {
             var posn = Geohash.decode(hash);
             if (posn.lat==lat && posn.lon==lon) return hash;
         }
+        precision = 12; // set to maximum
     }
 
     lat = Number(lat);
@@ -243,5 +242,5 @@ Geohash.neighbours = function(geohash) {
 
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  */
-if (typeof module != 'undefined' && module.exports) module.exports = Geohash; // CommonJS
+if (typeof module != 'undefined' && module.exports) module.exports = Geohash; // CommonJS, node.js
 if (typeof define == 'function' && define.amd) define([], function() { return Geohash; }); // AMD

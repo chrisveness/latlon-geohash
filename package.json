@@ -5,6 +5,7 @@
   "version": "1.0.0",
   "license": "MIT",
   "homepage": "http://www.movable-type.co.uk/scripts/geohash.html",
+  "main": "latlon-geohash.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/chrisveness/latlon-geohash"

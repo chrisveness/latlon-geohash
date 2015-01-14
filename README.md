@@ -28,6 +28,7 @@ and reference in HTML page using:
 Usage
 -----
 
+
 - `Geohash.encode(lat, lon, [precision])`: encode latitude/longitude point to geohash of given precision
    (number of characters in resulting geohash); if precision is not specified, it is inferred from
    precision of latitude/longitude values.
@@ -42,6 +43,10 @@ Note to obtain neighbours as an array, you can use
     var neighboursArr = Object.keys(neighboursObj).map(function(n) { return neighboursObj[n]; });
 
 Note that the parent of a geocode is simply `geocode.slice(0, -1)`.
+
+### Import within node.js
+
+    var Geohash = require('latlon-geohash');
 
 Further details
 ---------------
