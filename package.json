@@ -2,7 +2,7 @@
   "name": "latlon-geohash",
   "description": "Gustavo Niemeyer’s geocoding system",
   "author": "Chris Veness",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "MIT",
   "homepage": "http://www.movable-type.co.uk/scripts/geohash.html",
   "main": "latlon-geohash.js",
