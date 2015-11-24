@@ -118,7 +118,7 @@ Geohash.decode = function(geohash) {
     lat = lat.toFixed(Math.floor(2-Math.log(latMax-latMin)/Math.LN10));
     lon = lon.toFixed(Math.floor(2-Math.log(lonMax-lonMin)/Math.LN10));
 
-    return { lat: Number(lat), lon: Number(lon)};
+    return { lat: Number(lat), lon: Number(lon) };
 };
 
 

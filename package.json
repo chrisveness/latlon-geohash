@@ -18,10 +18,34 @@
     "longitude"
   ],
   "scripts": {
-    "test": "mocha test.js"
+    "test": "mocha test.js",
+    "lint": "eslint latlon-geohash.js"
   },
   "devDependencies": {
     "chai": "^3.4.1",
+    "eslint": "^1.10.1",
     "mocha": "^2.3.4"
+  },
+  "eslintConfig": {
+    "extends": "eslint:recommended",
+    "env": {
+      "mocha": true,
+      "node": true
+    },
+    "rules": {
+      "comma-dangle": [ 2, "never" ],
+      "curly": [ 2, "multi-line" ],
+      "indent": [ 2, 4, { "SwitchCase": 1 } ],
+      "key-spacing": [ 1, { "align": "value" } ],
+      "no-console": 1,
+      "no-redeclare": 1,
+      "no-shadow": 1,
+      "no-unused-vars": [ 1, { "vars": "all", "args": "after-used" } ],
+      "no-var": 0,
+      "object-curly-spacing": [ 2, "always" ],
+      "quotes": [ 2, "single", "avoid-escape" ],
+      "semi": [ 1, "always" ],
+      "strict": [ 2, "global" ]
+    }
   }
 }
