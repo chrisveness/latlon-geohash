@@ -2,7 +2,7 @@
   "name": "latlon-geohash",
   "description": "Gustavo Niemeyer’s geocoding system",
   "author": "Chris Veness",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "license": "MIT",
   "homepage": "http://www.movable-type.co.uk/scripts/geohash.html",
   "main": "latlon-geohash.js",
@@ -10,42 +10,36 @@
     "type": "git",
     "url": "https://github.com/chrisveness/latlon-geohash"
   },
-  "keywords": [
-    "geohash",
-    "geocode",
-    "geolocation",
-    "latitude",
-    "longitude"
-  ],
+  "keywords": [ "geohash", "geocode", "geolocation", "latitude", "longitude" ],
   "scripts": {
     "test": "mocha test.js",
     "lint": "eslint latlon-geohash.js"
   },
   "devDependencies": {
-    "chai": "^3.4.1",
-    "eslint": "^1.10.1",
-    "mocha": "^2.3.4"
+    "chai": "^3.5.0",
+    "eslint": "^3.5.0",
+    "mocha": "^3.0.2"
   },
   "eslintConfig": {
-    "extends": "eslint:recommended",
     "env": {
-      "mocha": true,
-      "node": true
+      "node": true,
+      "mocha": true
     },
+    "extends": "eslint:recommended",
     "rules": {
-      "comma-dangle": [ 2, "never" ],
-      "curly": [ 2, "multi-line" ],
-      "indent": [ 2, 4, { "SwitchCase": 1 } ],
-      "key-spacing": [ 1, { "align": "value" } ],
-      "no-console": 1,
-      "no-redeclare": 1,
-      "no-shadow": 1,
-      "no-unused-vars": [ 1, { "vars": "all", "args": "after-used" } ],
-      "no-var": 0,
-      "object-curly-spacing": [ 2, "always" ],
-      "quotes": [ 2, "single", "avoid-escape" ],
-      "semi": [ 1, "always" ],
-      "strict": [ 2, "global" ]
+      "array-bracket-spacing": [ "error", "always" ],
+      "comma-dangle": [ "error", "always-multiline" ],
+      "curly": [ "error", "multi-line" ],
+      "indent": [ "error", 4, { "SwitchCase": 1 } ],
+      "key-spacing": [ "error", { "align": "value" } ],
+      "no-console": "warn",
+      "no-redeclare": "warn",
+      "no-shadow": "warn",
+      "no-unused-vars": "warn",
+      "object-curly-spacing": [ "error", "always" ],
+      "quotes": [ "error", "single", "avoid-escape" ],
+      "semi": [ "error", "always" ],
+      "strict": [ "error", "global" ]
     }
   }
 }
