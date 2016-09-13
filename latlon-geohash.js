@@ -2,7 +2,6 @@
 /* Geohash encoding/decoding and associated functions        (c) Chris Veness 2014 / MIT Licence  */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  */
 
-/* jshint node:true, bitwise:false *//* global define */
 'use strict';
 
 
@@ -168,7 +167,7 @@ Geohash.bounds = function(geohash) {
 
     var bounds = {
         sw: { lat: latMin, lon: lonMin },
-        ne: { lat: latMax, lon: lonMax }
+        ne: { lat: latMax, lon: lonMax },
     };
 
     return bounds;
@@ -196,13 +195,13 @@ Geohash.adjacent = function(geohash, direction) {
         n: [ 'p0r21436x8zb9dcf5h7kjnmqesgutwvy', 'bc01fg45238967deuvhjyznpkmstqrwx' ],
         s: [ '14365h7k9dcfesgujnmqp0r2twvyx8zb', '238967debc01fg45kmstqrwxuvhjyznp' ],
         e: [ 'bc01fg45238967deuvhjyznpkmstqrwx', 'p0r21436x8zb9dcf5h7kjnmqesgutwvy' ],
-        w: [ '238967debc01fg45kmstqrwxuvhjyznp', '14365h7k9dcfesgujnmqp0r2twvyx8zb' ]
+        w: [ '238967debc01fg45kmstqrwxuvhjyznp', '14365h7k9dcfesgujnmqp0r2twvyx8zb' ],
     };
     var border = {
         n: [ 'prxz',     'bcfguvyz' ],
         s: [ '028b',     '0145hjnp' ],
         e: [ 'bcfguvyz', 'prxz'     ],
-        w: [ '0145hjnp', '028b'     ]
+        w: [ '0145hjnp', '028b'     ],
     };
 
     var lastCh = geohash.slice(-1);    // last character of hash
@@ -236,11 +235,10 @@ Geohash.neighbours = function(geohash) {
         's':  Geohash.adjacent(geohash, 's'),
         'sw': Geohash.adjacent(Geohash.adjacent(geohash, 's'), 'w'),
         'w':  Geohash.adjacent(geohash, 'w'),
-        'nw': Geohash.adjacent(Geohash.adjacent(geohash, 'n'), 'w')
+        'nw': Geohash.adjacent(Geohash.adjacent(geohash, 'n'), 'w'),
     };
 };
 
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  */
 if (typeof module != 'undefined' && module.exports) module.exports = Geohash; // CommonJS, node.js
-if (typeof define == 'function' && define.amd) define([], function() { return Geohash; }); // AMD
