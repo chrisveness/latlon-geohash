@@ -1,5 +1,5 @@
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  */
-/* Geohash encoding/decoding and associated functions        (c) Chris Veness 2014 / MIT Licence  */
+/* Geohash encoding/decoding and associated functions   (c) Chris Veness 2014-2016 / MIT Licence  */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  */
 
 'use strict';
@@ -58,7 +58,7 @@ Geohash.encode = function(lat, lon, precision) {
         if (evenBit) {
             // bisect E-W longitude
             var lonMid = (lonMin + lonMax) / 2;
-            if (lon > lonMid) {
+            if (lon >= lonMid) {
                 idx = idx*2 + 1;
                 lonMin = lonMid;
             } else {
@@ -68,7 +68,7 @@ Geohash.encode = function(lat, lon, precision) {
         } else {
             // bisect N-S latitude
             var latMid = (latMin + latMax) / 2;
-            if (lat > latMid) {
+            if (lat >= latMid) {
                 idx = idx*2 + 1;
                 latMin = latMid;
             } else {
