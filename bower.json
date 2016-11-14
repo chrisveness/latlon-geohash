@@ -1,0 +1,12 @@
+{
+  "name": "keyclic-latlon-geohash",
+  "description": "Gustavo Niemeyer’s geocoding system",
+  "author": "Chris Veness",
+  "version": "1.1.1",
+  "license": "MIT",
+  "main": "latlon-geohash.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Keyclic/latlon-geohash"
+  },
+}
