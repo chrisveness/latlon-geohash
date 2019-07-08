@@ -4,30 +4,11 @@ geohash
 Functions to convert a [geohash](http://en.wikipedia.org/wiki/Geohash) to/from a latitude/longitude
 point, and to determine bounds of a geohash cell and find neighbours of a geohash.
 
-Methods summary:
+Note this version 2 uses ES classes and modules: for older browsers (or Node.js <8.0.0), 
+[v1.1.0](https://github.com/chrisveness/latlon-geohash/tree/v1.1.0) is ES5-based.
 
-- `encode`: latitude/longitude point to geohash
-- `decode`: geohash to latitude/longitude
-- `bounds` of a geohash cell
-- `adjacent` `neighbours` of a geohash
-
-Install
--------
-
-### in browser
-
-Download the JavaScript [source](https://raw.githubusercontent.com/chrisveness/geodesy/master/latlon-geohash.js)
-and reference in HTML page using:
-
-    <script src="js/latlon-geohash.js"></script>
-
-### from npm
-
-    npm install --save latlon-geohash
-
-Usage
------
-
+API
+---
 
 - `Geohash.encode(lat, lon, [precision])`: encode latitude/longitude point to geohash of given precision
    (number of characters in resulting geohash); if precision is not specified, it is inferred from
@@ -39,14 +20,51 @@ Usage
 
 Note to obtain neighbours as an array, you can use
 
-    var neighboursObj = Geohash.neighbours(geohash);
-    var neighboursArr = Object.keys(neighboursObj).map(function(n) { return neighboursObj[n]; });
+    const neighboursObj = Geohash.neighbours(geohash);
+    const neighboursArr = Object.keys(neighboursObj).map(n => neighboursObj[n]);
 
-Note that the parent of a geocode is simply `geocode.slice(0, -1)`.
+The parent of a geocode is simply `geocode.slice(0, -1)`.
 
-### Import within node.js
+If you want the geohash converted from Base32 to Base4, you can e.g.:
 
-    var Geohash = require('latlon-geohash');
+    parseInt(Geohash.encode(52.20, 0.12, 6), 32).toString(4);
+
+
+Usage in browser
+----------------
+
+Geohash can be used in the browser by taking a local copy, or loading it from
+    [jsDelivr](https://www.jsdelivr.com/package/npm/latlon-geohash): for example,
+
+```html
+<!doctype html><title>geohash example</title><meta charset="utf-8">
+<script type="module">
+    import Geohash from 'https://cdn.jsdelivr.net/npm/latlon-geohash@2.0.0';
+
+    const geohash = Geohash.encode(52.20, 0.12, 6);
+    console.assert(geohash == 'u120fw');
+
+    const latlon = Geohash.decode('u120fw');
+    console.assert(JSON.stringify(latlon) == '{"lat":52.1988,"lon":0.115}');
+</script>
+```
+
+
+Usage in Node.js
+----------------
+
+Geohash can be used in a Node.js app from [npm](https://www.npmjs.com/package/latlon-geohash) 
+(currently the [esm](https://www.npmjs.com/package/esm) package is required to load ES-modules):
+
+```shell
+$ npm install latlon-geohash esm
+$ node -r esm
+> import Geohash from 'latlon-geohash';
+> const geohash = Geohash.encode(52.20, 0.12, 6);
+> console.assert(geohash == 'u120fw');
+> const latlon = Geohash.decode('u120fw');
+> console.assert(JSON.stringify(latlon) == '{"lat":52.1988,"lon":0.115}');
+```
 
 Further details
 ---------------

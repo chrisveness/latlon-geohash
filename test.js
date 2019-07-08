@@ -1,13 +1,15 @@
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  */
-/*  Geohash Test Harness                                (c) Chris Veness 2014-2016 / MIT Licence  */
+/*  Geohash Test Harness                                (c) Chris Veness 2014-2019 / MIT Licence  */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  */
-'use strict'
 
-const chai = require('chai');  // BDD/TDD assertion library
+import Geohash from './latlon-geohash.js';
 
-const Geohash = require('./latlon-geohash.js');
+if (typeof window == 'undefined') { // node
+    import('chai').then(chai => { global.should = chai.should(); });
+} else {                            // browser
+    window.should = chai.should();
+}
 
-const should = chai.should();
 
 describe('latlon-geohash', function() {
 
