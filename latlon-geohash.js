@@ -172,8 +172,8 @@ class Geohash {
     /**
      * Determines adjacent cell in given direction.
      *
-     * @param   geohash - Cell to which adjacent cell is required.
-     * @param   direction - Direction from geohash (N/S/E/W).
+     * @param   {string} geohash - Cell to which adjacent cell is required.
+     * @param   {string} direction - Direction from geohash (N/S/E/W).
      * @returns {string} Geocode of adjacent cell.
      * @throws  Invalid geohash.
      */
