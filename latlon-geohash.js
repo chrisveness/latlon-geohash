@@ -222,15 +222,17 @@ class Geohash {
      * @throws  Invalid geohash.
      */
     static neighbours(geohash) {
+        const n = Geohash.adjacent(geohash, 'n')
+        const s = Geohash.adjacent(geohash, 's')
         return {
-            'n':  Geohash.adjacent(geohash, 'n'),
-            'ne': Geohash.adjacent(Geohash.adjacent(geohash, 'n'), 'e'),
+            'n':  n,
+            'ne': Geohash.adjacent(n, 'e'),
             'e':  Geohash.adjacent(geohash, 'e'),
-            'se': Geohash.adjacent(Geohash.adjacent(geohash, 's'), 'e'),
-            's':  Geohash.adjacent(geohash, 's'),
-            'sw': Geohash.adjacent(Geohash.adjacent(geohash, 's'), 'w'),
+            'se': Geohash.adjacent(s, 'e'),
+            's':  s,
+            'sw': Geohash.adjacent(s, 'w'),
             'w':  Geohash.adjacent(geohash, 'w'),
-            'nw': Geohash.adjacent(Geohash.adjacent(geohash, 'n'), 'w'),
+            'nw': Geohash.adjacent(n, 'w'),
         };
     }
 
